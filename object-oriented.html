@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.3.0/mdb.min.css" rel="stylesheet" />
+
+</head>
+
+<body>
+
+    
+    <div class="container p-4">
+
+        <h3>Object Oriented Programming</h3>
+
+
+        <div class="row">
+            <div class="col-4">
+                <div class="card p-4 " style="width: 350px;"> 
+                    <input class="form-control" id="name" placeholder="class name">
+        
+                    <hr>
+        
+                    <div class="d-flex"><input class="form-control" id="key" placeholder="var name"><input id="value" class="form-control" placeholder="value"></div>
+                   <br>
+                    <button class="btn btn-info" onclick="createClass()">Create</button>
+                </div>
+            </div>
+            <div class="col-8 bg-light" style="min-height: 100vh;">
+                  <div id="output">
+
+                  </div>
+            </div>
+        </div>
+
+
+    <!-- MDB -->
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.3.0/mdb.min.js"></script>
+
+    <script>
+
+          
+
+
+      function createClass(){
+            let className = document.getElementById("name").value;
+           
+            let key  = document.getElementById("key").value;
+            let value  = document.getElementById("value").value;
+            let code = `var  ${className} = class{
+                constructor(){
+                    this.${key} = "${value}"
+                }
+            }`
+
+            console.log(code)
+
+            eval(code)
+
+            eval(`var x = new ${className}()`)
+
+            eval("console.log(x)")
+
+
+            document.getElementById("output").innerHTML += `<div class='card p-4 text-primary '>${className} <br> ${JSON.stringify(x)}</div>`
+
+
+      }
+    </script>
+</body>
+
+</html>
